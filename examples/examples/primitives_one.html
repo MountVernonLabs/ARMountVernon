@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+
+  <head>
+
+  	<!-- include links to aframe.js and AR.js libraries -->
+
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+  </head>
+
+<body style='margin : 0px; overflow: hidden;'>
+
+	 <!-- add arjs attribute to A-Frame <a-scene> tag to access camera -->
+
+    <a-scene embedded arjs='sourceType: webcam;'>
+
+      <!-- add A-Frame primitives: box, sphere, cylinder, plane -->
+
+      <!-- attributes include rotation (x, y, z), color (html), and radius (scale of 0 to 1 (100%) -->
+
+      <!-- position, height, and radius attributes are in relation to AR marker -->
+
+      <a-box position="-1 0.75 1" rotation="0 45 0" scale="1 1 1" color="#4CC3D9"></a-box>
+      <a-sphere position="0 1.5 -1" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder position="1 1 1" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      <a-plane position="0 0.25 0" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+
+      <!-- include a-marker-camera tag from AR.js and declare marker name, in this case, a preset is used 'hiro' -->
+
+      <a-marker-camera preset='hiro'></a-marker-camera>
+
+    </a-scene>
+
+  </body>
+
+</html>

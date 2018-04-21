@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+
+  <head>
+
+  	<!-- include links to aframe.js and AR.js libraries -->
+
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+  </head>
+
+<body style='margin : 0px; overflow: hidden;'>
+
+	 <!-- add arjs attribute to A-Frame <a-scene> tag to access camera -->
+
+    <a-scene embedded arjs='sourceType: webcam;'>
+
+        <!-- A-Frame <a-assets> tag for pre-loading models, textures, video, or audio assets -->
+
+        <a-assets>
+
+          <!-- Image tag <img> with custom ID name declared and source attribute -->
+
+          <img id="boxTexture" src="images/duchamp_staircase.jpg">
+        
+        </a-assets>
+
+      <!-- add source attribute to <a-box> tag connecting image to primitive model -->
+
+      <a-box src="#boxTexture" position="0 1.25 0" color="#0061e4" scale="1 1 1" rotation= "0 45 0" material='opacity: 0.9;'>
+       
+        <!-- animate with A-Frame <a-anmation> tag, set attributes for attribute to animate, duration in milliseconds, state when not animating, ending value, ease setting, loop setting -->
+
+        <a-animation attribute="rotation"
+               dur="10000"
+               fill="forwards"
+               to="0 405 0"
+               easing="ease-in-out"
+               repeat="indefinite">
+                 
+        </a-animation>
+
+      </a-box>
+ 
+      <!-- include a-marker-camera tag from AR.js and declare marker name, in this case, a preset is used 'hiro' -->
+
+      <a-marker-camera preset='hiro'></a-marker-camera>
+
+    </a-scene>
+
+  </body>
+
+</html>
